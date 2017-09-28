@@ -65,6 +65,9 @@
         }
     </script>
     <style>
+	    input[type=submit] {
+    			display:hidden;
+		}
 		input[type=text] {
 			padding: 12px 20px 12px 40px;
             font-family: 'Trirong', serif;
@@ -158,6 +161,7 @@
 
 <body onload="tableSearch.init();">
 <input name="search" placeholder="Search..." id="textBoxSearch" onkeyup="tableSearch.runSearch();" type="text" autocomplete="on" value="">
+<input onclick="tableSearch.runSearch();" type="submit">
 <table border="1" cellspacing="0" id="miyazaki">
 	<caption>สอบปลายภาค 1/60</caption>
 	<thead>
