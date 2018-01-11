@@ -1,0 +1,1135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet"> 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="google-site-verification" content="7wIVFGC4m5650D4gZfV1JL4aWkMbAtb8qEOfzhrflDE" />
+	<title>สอบกลางภาค 2/60</title>
+	<script language="javascript" type="text/javascript">
+        //define the table search as an object, which can implement both functions and properties
+        window.tableSearch = {};
+
+        //initialize the search, setup the current object
+        tableSearch.init = function() {
+            //define the properties I want on the tableSearch object
+            this.Rows = document.getElementById('data').getElementsByTagName('TR');
+            this.RowsLength = tableSearch.Rows.length;
+            this.RowsText = [];
+            //loop through the table and add the data to
+            for (var i = 0; i < tableSearch.RowsLength; i++) {
+                this.RowsText[i] = (tableSearch.Rows[i].innerText) ? tableSearch.Rows[i].innerText.toUpperCase() : tableSearch.Rows[i].textContent.toUpperCase();
+            }
+        }
+
+        //onlys shows the relevant rows as determined by the search string
+        tableSearch.runSearch = function() {
+            //get the search term
+            this.Term = document.getElementById('textBoxSearch').value.toUpperCase();
+            //loop through the rows and hide rows that do not match the search query
+            for (var i = 0, row; row = this.Rows[i], rowText = this.RowsText[i]; i++) {
+                row.style.display = ((rowText.indexOf(this.Term) != -1) || this.Term === '') ? '' : 'none';
+            }
+        }
+
+        //runs the search
+        tableSearch.search = function(e) {
+            //checks if the user pressed the enter key, and if they did then run the search
+            var keycode;
+            if (window.event) {
+                keycode = window.event.keyCode;
+            } else if (e) {
+                keycode = e.which;
+            } else {
+                return false;
+            }
+            if (keycode == 13) {
+                tableSearch.runSearch();
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var headertext = [];
+        var headers = document.querySelectorAll("#miyazaki th");
+        var tablerows = document.querySelectorAll("#miyazaki th");
+        var tablebody = document.querySelector("#miyazaki tbody");
+        for (var i = 0; i < headertext.length; i++) {
+            var current = headers[i];
+            headertext.push(current.textContent.replace(/\r?\n|\r/, ""));
+        }
+        for (var i = 0, row; row = tablebody.rows[i]; i++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                col.setAttribute("data-th", headertext[j]);
+            }
+        }
+    </script>
+    <style>
+	    input[type=button] {
+    			 background:transparent;
+		    font-size:0;
+ 			border:0;
+		}
+		input[type=text] {
+			padding: 12px 20px 12px 40px;
+            font-family: 'Trirong', serif;
+            font-size: 1rem;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			background-color: white;
+			background-image: url('searchicon.png');
+			background-position: 10px 10px; 
+			background-repeat: no-repeat;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+			width: 90%;
+		}
+		
+        table#miyazaki caption {
+            font-weight: bold;
+            font-family: 'Trirong', serif;
+            font-size: 1.5rem;
+            color: #444;
+            margin: 1rem;
+        }
+        
+        table#miyazaki {
+            border-collapse: collapse;
+            font-family: 'Trirong', serif;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+        
+        table#miyazaki thead th {
+            font-weight: bold;
+            font-family: 'Trirong', serif;
+            font-size: 1rem;
+            color: #fff;
+            margin: 1rem;
+        }
+        
+        table#miyazaki thead th,
+        table#miyazaki tbody td {
+            font-family: 'Trirong', serif;
+            font-size: 1rem;
+            color: #fff;
+            margin: 1rem;
+        }
+        
+        table#miyazaki tbody td {
+            padding: .5rem;
+            font-family: 'Trirong', serif;
+            font-size: 1rem;
+            color: #444;
+            background: #EEE;
+        }
+        
+        table#miyazaki tbody tr:not(:last-child) {
+            border-top: 1px solid #DDD;
+            border-bottom: 1px solid #DDD;
+            border-left: 1px solid #DDD;
+            border-right: 1px solid #DDD;
+        }
+        
+        @media screen and (max-width: 600px) {
+            table#miyazaki caption {
+                background-image: none;
+            }
+            table#miyazaki thead {
+                display: none;
+            }
+            table#miyazaki tbody td {
+                display: block;
+                padding: .5rem;
+            }
+            table#miyazaki tbody tr td:first-child {
+                background: #333;
+                color: #FFF;
+            }
+            table#miyazazi tbody td:before {
+                content: attr(data-th);
+                font-weight: bold;
+                display: inline-block;
+                width: 6rem;
+            }
+        }
+    </style>
+</head>
+
+<body onload="tableSearch.init();">
+<input name="search" placeholder="Search..." id="textBoxSearch" onkeyup="tableSearch.runSearch();" type="text" autocomplete="on" value="">
+<input onclick="tableSearch.runSearch();" type="button">
+<table border="1" cellspacing="0" id="miyazaki">
+	<caption>สอบกลางภาควิชา Com Skill 2/60</caption>
+	<thead>
+	<tr>
+		<th>กลุ่ม</th>
+		<th>สำรองสำหรับ</th>
+		<th>จำนวนที่ลงเรียน</th>
+		<th>อาจารย์ผู้สอน</th>
+		<th>คณะ</th>
+		<th>วันที่สอบ</th>
+		<th>เวลาสอบ</th>
+		<th>ห้องสอบ<th>
+		<th>อาคาร</th>
+		<th>อ.คุมสอบ</th>
+		<th>เจ้าหน้าที่</th>
+		<th>คอลัมน์1</th>
+	</tr>
+	</thead>
+	<tbody id="data">
+	<tr>
+		<td>49</td>
+		<td>วิศวกรรมอาหาร ชั้นปี 2</td>
+		<td>40</td>
+		<td> อ.มาโนช ประชา</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 201</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>56</td>
+		<td>บริหารธุรกิจ ชั้นปี 2</td>
+		<td>40</td>
+		<td>นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>บริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td>นายกีรติบุตร กาญจนเสถียร</td>
+		<td>สลิตา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>38</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-วิศวกรรมอิเล็กทรอนิกส์ ชั้นปี 2</td>
+		<td>32</td>
+		<td> ดร.ศิริชัย เตรียมล้ำเลิศ</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 201</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>สาริณี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>48</td>
+		<td>วิศวกรรมเครื่องจักรกลเกษตร ชั้นปี 2</td>
+		<td>39</td>
+		<td> อ.วีระชัย แย้มวจี</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>บังเอิญ</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>55</td>
+		<td>จิตรกรรม ชั้นปี 1</td>
+		<td>32</td>
+		<td>ผู้ช่วยศาสตราจารย์ ดร.อุไรวรรณ อินทร์แหยม</td>
+		<td>ศิลปกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 201</td>
+		<td>อาคาร I-work</td>
+		<td>ดร.วิภารัตน์ บุษยาตรัส</td>
+		<td>สาริณี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>02</td>
+		<td>การบริหารธุรกิจระหว่างประเทศ ชั้นปี 1 กลุ่ม B</td>
+		<td>74</td>
+		<td>นายกีรติบุตร กาญจนเสถียร</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายรักษารัตน์ ขนานขาว</td>
+		<td>สาวิตรี + บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>44</td>
+		<td>สุขภาพและความงาม ชั้นปี 1</td>
+		<td>45</td>
+		<td>ดร.ธนพล ตันติศรีปรีชา</td>
+		<td>วิมยาลัยการแพทย์แผนไทย</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.202</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>61</td>
+		<td>เทคโนโลยีและสื่อสารการศึกษา ชั้นปี 1 กลุ่ม A</td>
+		<td>35</td>
+		<td>ดร.นฤมล เทพนวล</td>
+		<td>เทคโนโลยีสื่อสารมวลชน</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>ชั้นปี 1 กลุ่ม B (เลขที่ 46-57) จำนวน 12 คน</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>27</td>
+		<td>อาหารและโภชนาการ ชั้นปี 1 กลุ่ม B</td>
+		<td>33</td>
+		<td>นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>คหกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td>นายรักษารัตน์ ขนานขาว</td>
+		<td>พรสุภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>เศรษฐศาสตร์-เศรษฐศาสตร์ธุรกิจ ชั้นปี 1 กลุ่ม B</td>
+		<td>34</td>
+		<td> นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>ดร.ธนพล ตันติศรีปรีชา</td>
+		<td>เบญสิร์ยา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>36</td>
+		<td>วิศวกรรมอุตสาหการ-วิศวกรรมการผลิต ชั้นปี 2</td>
+		<td>34</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.พฤศยน นินทนาวงศา</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>ญานิภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>63</td>
+		<td>เทคโนโลยีและสื่อสารการศึกษา ชั้นปี 1</td>
+		<td>35</td>
+		<td>ดร.นฤมล เทพนวล</td>
+		<td>เทคโนโลยีสื่อสารมวลชน</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>มัทธนา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>ชั้นปี 1 กลุ่ม B (เลขที่ 1-45)</td>
+		<td>57</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.ชุติมา ประสาทแก้ว</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> ผู้ช่วยศาสตราจารย์ไกรมน มณีศิลป์</td>
+		<td>เอกชัย</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบห้อง รป203 เวลา 09.00 -12.00 น วันที่ 13</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>04</td>
+		<td>การจัดการโลจิสติกส์และซัพพลายเชน ชั้นปี 1 กลุ่ม A</td>
+		<td>60</td>
+		<td> ดร.วิภารัตน์ บุษยาตรัส</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>16.00 - 19.30 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.ชุติมา ประสาทแก้ว</td>
+		<td>สาวิตรี + บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>50</td>
+		<td>เทคโนโลยีการผลิต ชั้นปี 1</td>
+		<td>40</td>
+		<td>นายเกียรติศักดิ์ สมฤทธิ์</td>
+		<td>คณะครุศาสตร์อุตสหกรรม</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 201</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>เศรษฐศาสตร์-เศรษฐศาสตร์ธุรกิจ ชั้นปี 1 กลุ่ม A</td>
+		<td>39</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td>ผู้ช่วยศาสตราจารย์ ดร.อุไรวรรณ อินทร์แหยม</td>
+		<td>สลิตา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>08</td>
+		<td>สถิติประยุกต์ ชั้นปี 2 กลุ่ม 1<br>สถิติประยุกต์ ชั้นปี 2 กลุ่ม 2</td>
+		<td>38</td>
+		<td>นายกีรติบุตร กาญจนเสถียร</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td>นายรักษารัตน์ ขนานขาว</td>
+		<td>บังเอิญ</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>03</td>
+		<td>การบริหารธุรกิจระหว่างประเทศ ชั้นปี 1 กลุ่ม C</td>
+		<td>80</td>
+		<td>นายรักษารัตน์ ขนานขาว</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>ดร.ธนพล ตันติศรีปรีชา</td>
+		<td>สาวิตรี + บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>42</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-วิศวกรรม</td>
+		<td>41</td>
+		<td>ดร.วินัย วิชัยพาณิชย์</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.202</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>ชั้นปี 1 กลุ่ม C (เลขที่ 41 - 65) จำนวน 25 คน</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><a class="comment-indicator"></a>
+	<comment>รวมสอบ sec. 13+05+14 = 50 คน  หาเด็กมาเกินให้ไปสอบ รป.202 คะ</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>05</td>
+		<td>การจัดการโลจิสติกส์และซัพพลายเชน ชั้นปี 1 กลุ่ม B (เลขที่ 46 - 58)</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>ชั้นปี 1 กลุ่ม D  (เลขที่ 46- 57) จำนวน 12 คน</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>70</td>
+		<td>วิศวกรรมคอมพิวเตอร์ ชั้นปี 4</td>
+		<td>28</td>
+		<td>ผู้ช่วยศาสตราจารย์ ดร.พฤศยน นินทนาวงศา</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>พรสุภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>31</td>
+		<td>วิทยาการคอมพิวเตอร์ ชั้นปี 3 กลุ่ม 2</td>
+		<td>27</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.อุไรวรรณ อินทร์แหยม</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>พรสุภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>33</td>
+		<td>วิศวกรรมสิ่งแวดล้อม ชั้นปี 2</td>
+		<td>14</td>
+		<td> ดร.วินัย วิชัยพาณิชย์</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>พรสุภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>69</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-โทรคมนาคม </td>
+		<td>14</td>
+		<td>นายเกียรติศักดิ์ สมฤทธิ์</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 303</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>พรสุภา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>26</td>
+		<td>อาหารและโภชนาการ ชั้นปี 1 กลุ่ม A</td>
+		<td>34</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>คหกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td> นายวรพันธ์ สาระสุรีย์ภรณ์</td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>39</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-วิศวกรรม</td>
+		<td>34</td>
+		<td>ดร.ศิริชัย เตรียมล้ำเลิศ</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>43</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-วิศวกรรมสื่อสารโครงข่าย ชั้นปี 2</td>
+		<td>27</td>
+		<td>อ.เจษฎา อรุณฤกษ์</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>45</td>
+		<td>วิศวกรรมเคมี ชั้นปี 2 กลุ่ม 1</td>
+		<td>27</td>
+		<td>นางสาวพิชยพัชยา ศรีคร้าม</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>54</td>
+		<td>ศิลปะไทย ชั้นปี 1</td>
+		<td>16</td>
+		<td>นายสันติ พัฒนะวิชัย</td>
+		<td>ศิลปกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>52</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-โทรคมนาคม </td>
+		<td>16</td>
+		<td>นายณัฐภณ หรรษกรคณโชค</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>i-work 304</td>
+		<td>อาคาร I-work</td>
+		<td><br></td>
+		<td>วรรณวิสาข์</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>01</td>
+		<td>การบริหารธุรกิจระหว่างประเทศ ชั้นปี 1 กลุ่ม A</td>
+		<td>67</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>แสงดาว+บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>ชั้นปี 1 กลุ่ม A</td>
+		<td>65</td>
+		<td> นายวรพันธ์ สาระสุรีย์ภรณ์</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.บุรัสกร อยู่สุข</td>
+		<td>แสงดาว+บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>32</td>
+		<td>วิทยาการคอมพิวเตอร์ ชั้นปี 3</td>
+		<td>13</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>วิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>ผู้ช่วยศาสตราจารย์ ดร.ชุติมา ประสาทแก้ว</td>
+		<td>แสงดาว+บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>40</td>
+		<td>โทรคมนาคม ชั้นปี 3 (เลขที่ 15 - 23 )</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>แสงดาว+บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>30</td>
+		<td>วิทยาการคอมพิวเตอร์ ชั้นปี 3 กลุ่ม 1 (เลขที่ 15 - 23)</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.201</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>แสงดาว+บัณฑิต</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>เศรษฐศาสตร์-เศรษฐศาสตร์ระหว่างประเทศ ชั้นปี 1 (เลขที่ 1 - 45)</td>
+		<td>54</td>
+		<td>นางสาวปิยนันท์ เทียบศรไชย</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.202</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายสันติ พัฒนะวิชัย</td>
+		<td>อัญชัญ</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบรวม sec อื่น วันที่ 14 ม.ค.60 รป.207 เวลา  9.00 -12.00 น.
+</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>62</td>
+		<td>เทคโนโลยีและสื่อสารการศึกษา ชั้นปี 1 กลุ่ม B</td>
+		<td>34</td>
+		<td>ดร.นฤมล เทพนวล</td>
+		<td>เทคโนโลยีสื่อสารมวลชน</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.202</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>อัญชัญ</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>46</td>
+		<td>วิศวกรรมเคมี ชั้นปี 2 กลุ่ม 2</td>
+		<td>27</td>
+		<td>นางสาวพิชยพัชยา ศรีคร้าม</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>สาวิตรี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>47</td>
+		<td>วิศวกรรมวัสดุ-วิศวกรรมพลาสติก ชั้นปี 3</td>
+		<td>27</td>
+		<td> อ.สมรรถชัย จันทรัตน์</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>สาวิตรี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>59</td>
+		<td>วิศวกรรมไฟฟ้า ชั้นปี 1 กลุ่ม 1</td>
+		<td>19</td>
+		<td>นายณัฐภณ หรรษกรคณโชค</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>สาวิตรี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>06</td>
+		<td>ชีววิทยา ชั้นปี 4 กลุ่ม 1</td>
+		<td>18</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.บุรัสกร อยู่สุข</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.203</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>ผู้ช่วยศาสตราจารย์ ดร.อุไรวรรณ อินทร์แหยม</td>
+		<td>สาวิตรี</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>66</td>
+		<td>เทคโนโลยีการพิมพ์ดิจิทัลและบรรจุภัณฑ์ ชั้นปี 1</td>
+		<td>27</td>
+		<td>ดร.วิภารัตน์ บุษยาตรัส</td>
+		<td>คณะเทคโนโลยีสื่อสารมวลชน</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายกีรติบุตร กาญจนเสถียร</td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>09</td>
+		<td>ฟิสิกส์ประยุกต์ ชั้นปี 1</td>
+		<td>26</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.บุรัสกร อยู่สุข</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายสันติ พัฒนะวิชัย</td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>65</td>
+		<td>ศิลปะภาพพิมพ์ ชั้นปี 1 (เลขที่ 1 - 13)</td>
+		<td>23</td>
+		<td>นายวรพันธ์ สาระสุรีย์ภรณ์</td>
+		<td>ศิลปกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>40</td>
+		<td>โทรคมนาคม ชั้นปี 3 (เลขที่ 1 - 14 )</td>
+		<td>23</td>
+		<td>อ.วีระชัย แย้มวจี</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>ขัตติยาพร</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>37</td>
+		<td>วิศวกรรมสิ่งทอ ชั้นปี 2</td>
+		<td>26</td>
+		<td> อ.มาโนช ประชา</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>41</td>
+		<td>วิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม-วิศวกรรมโทรคมนาคม ชั้นปี 2</td>
+		<td>26</td>
+		<td>ดร.ปอลิน กองสุวรรณ</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>07</td>
+		<td>ชีววิทยา ชั้นปี 4 กลุ่ม 2 (เลขที่ 1 - 13)</td>
+		<td>23</td>
+		<td> ผู้ช่วยศาสตราจารย์ ดร.บุรัสกร อยู่สุข</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายสันติ พัฒนะวิชัย</td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>30</td>
+		<td>วิทยาการคอมพิวเตอร์ ชั้นปี 3 กลุ่ม 1 (เลขที่ 1 - 14)</td>
+		<td>23</td>
+		<td>นายวรพันธ์ สาระสุรีย์ภรณ์</td>
+		<td>คณะวิทยาศาสตร์และเทคโนโลยี</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>อาจารย์ไกรมน มณีศิลป์</td>
+		<td>จันทิมา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>51</td>
+		<td>เทคโนโลยีการผลิต ชั้นปี 1</td>
+		<td>26</td>
+		<td> นายเกียรติศักดิ์ สมฤทธิ์<br>นายณัฐภณ หรรษกรคณโชค</td>
+		<td>คณะครุศาสตร์อุตสหกรรม</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>วิริยา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>34</td>
+		<td>วิศวกรรมเครื่องกล-วิศวกรรมระบบราง ชั้นปี 2</td>
+		<td>26</td>
+		<td>อ.สมรรถชัย จันทรัตน์</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>วิริยา</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบรวมกับ Sec.60
+ รวมจำนวน 50 คน หากเด็กมาเต็ม ให้เด็กไปสอบ  รป.202</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>67</td>
+		<td>การจัดการโลจิสติกส์และซัพพลายเชน ชั้นปี 1 กลุ่ม B</td>
+		<td>0</td>
+		<td>ดร.วิภารัตน์ บุษยาตรัส</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>68</td>
+		<td> Business English ชั้นปี 1</td>
+		<td>0</td>
+		<td>นายกีรติบุตร กาญจนเสถียร<br>นายปองพล นิลพฤกษ์</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>35</td>
+		<td>วิศวกรรมอุตสาหการ-วิศวกรรมการผลิต ชั้นปี 2</td>
+		<td>34</td>
+		<td> ผู้ช่วยศาสตราจารย์วัฒนา พันธ์ลำเจียก</td>
+		<td>คณะวิศวกรรมศาสตร์</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.204</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>เบญสิร์ยา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>ชั้นปี 1 กลุ่ม C (เลขที่ 1 - 40)</td>
+		<td>65</td>
+		<td>ดร.ธนพล ตันติศรีปรีชา</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.205</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> ผู้ช่วยศาสตราจารย์ไกรมน มณีศิลป์</td>
+		<td>ญานิภา</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบห้องรป.203  13 ม.ค.60 เวลา 13.00 - 16.00 น.
+
+</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>05</td>
+		<td>การจัดการโลจิสติกส์และซัพพลายเชน ชั้นปี 1 กลุ่ม B (เลขที่ 1- 45)</td>
+		<td>58</td>
+		<td> ผู้ช่วยศาสตราจารย์ไกรมน มณีศิลป์</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> นายกีรติบุตร กาญจนเสถียร</td>
+		<td>มัทธนา</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบห้องรป.203  13 ม.ค.60 เวลา 13.00 - 16.00 น.</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>ชั้นปี 1 กลุ่ม D  (เลขที่ 1-45)</td>
+		<td>57</td>
+		<td> นายกีรติบุตร กาญจนเสถียร</td>
+		<td>คณะบริหารธุรกิจ</td>
+		<td>13 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td> นางสาวสิริณา ช่วยเต็ม</td>
+		<td>เอกชัย</td>
+		<td><a class="comment-indicator"></a>
+	<comment>สอบห้องรป.203  13 ม.ค.60 เวลา 13.00 - 16.00 น.
+</comment>
+	<br></td>
+	</tr>
+	<tr>
+		<td>53</td>
+		<td>ออกแบบนิเทศศิลป์ ชั้นปี 2 (เลขที่ 1 -14 )</td>
+		<td>24</td>
+		<td>นายสันติ พัฒนะวิชัย</td>
+		<td>ศิลปกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td>นายวรพันธ์ สาระสุรีย์ภรณ์</td>
+		<td>วิริยา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>60</td>
+		<td>วิศวกรรมไฟฟ้า ชั้นปี 1 กลุ่ม 2</td>
+		<td>24</td>
+		<td>นายณัฐภณ หรรษกรคณโชค</td>
+		<td>วิศวกรรมศาสตร์</td>
+		<td>14 ม.ค 60</td>
+		<td>13.00 - 16.00 น.</td>
+		<td>รป.206</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td>วิริยา</td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>เศรษฐศาสตร์-เศรษฐศาสตร์ระหว่างประเทศ ชั้นปี 1 (เลขที่ 46 - 54)</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>53</td>
+		<td>ออกแบบนิเทศศิลป์ ชั้นปี 2 (เลขที่ 15 - 24 )</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>65</td>
+		<td>ศิลปะภาพพิมพ์ ชั้นปี 1 (เลขที่ 14 - 23)</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	<tr>
+		<td>07</td>
+		<td>ชีววิทยา ชั้นปี 4 กลุ่ม 2 (เลขที่ 14 - 23)</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+		<td>14 ม.ค 60</td>
+		<td>9.00 - 12.00 น.</td>
+		<td>รป.207</td>
+		<td>อาคารปฎิบัติการ 13 ชั้น</td>
+		<td><br></td>
+		<td><br></td>
+		<td><br></td>
+	</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+</body>
+
+</html>
