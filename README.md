@@ -32,6 +32,7 @@ Here are some ideas to get you started:
 - Juniper Networks: JNCIAx4
 - Alibaba Cloud Certified Associate (ACA) Cloud Computing
 - Alibaba Cloud Certified Associate (ACA) Cloud Security
+- Alibaba Cloud Certified Professional (ACP) Cloud Security
 - Alibaba Cloud Certified Associate (ACA) Cloud Native
 - Alibaba Cloud Certified Associate (ACA) Big Data
 - Alibaba Cloud Certified Associate (ACA) System Operator
