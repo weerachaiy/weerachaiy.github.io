@@ -33,6 +33,6 @@ Here are some ideas to get you started:
 - Alibaba Cloud: ACPx2 (Cloud Security, DevOps Engineer)
 - Alibaba Cloud: ACAx5 (Cloud Computing, Cloud Security, Cloud Native, Big Data, System Operator)
 - Alibaba Cloud: ACS Innovative Computing
-- Microsoft: Azuewx3 (Azure Fundamentals, Azure Data Fundamentals, Azure AI Fundamentals)
+- Microsoft: AZUREx3 (Azure Fundamentals, Azure Data Fundamentals, Azure AI Fundamentals)
 - Microsoft: MTAx2 Certified: (Networking Fundamentals, Introduction to Programming Using JavaScript)
 - https://www.credly.com/users/weerachai-yaemvachi
