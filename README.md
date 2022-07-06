@@ -28,7 +28,7 @@ Here are some ideas to get you started:
 -->
 - Cisco Certified Academy Instructor (CCAI)
 - Huawei Certified Academy Instructor (HCAI)
-- Huawei: HCIP-R&S HCIAx8
+- Huawei: HCIP-R&S HCIAx10
 - Juniper Networks: JNCIAx4
 - Alibaba Cloud Certified Professional (ACP) Cloud Security
 - Alibaba Cloud Certified Professional (ACP) DevOps Engineer
